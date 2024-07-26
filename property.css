@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    margin: 0;
+    padding :  0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+/* set background image*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('Quà\ Tặng\ Thủ\ Công.jpg');
+
+    background-size: 35%;
+}
+
+.gift-container{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    position : absolute;
+    bottom : 20%;
+    
+}
+.gift-container.active{
+    animation : Vibration 1s ease forwards;
+}
+
+@keyframes Vibration{
+    0%{
+        transform: scale(1,1);
+    }
+    25%{
+        transform: scale(0.9,1.1);
+    }
+    50%{
+        transform: scale(1.1,0.9);
+    }
+    70%{
+        transform: scale(0.9,1.1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+
+.gift-container .gift-box {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    background: #ec9c4a;
+    animation : Bounce 4s ease infinite;
+}
+@keyframes Bounce{
+    0%{
+        transform: translateY(-24px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(-24px);
+    }
+}
+
+.gift-box::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background: #e76f51;
+    left : 124px;
+}
+.gift-box::after{
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0,0,0,.3);
+    width: 300px;
+    height: 200px;
+}
+
+.gift-box.active{
+    animation : none;
+}
+
+.click{
+    position : absolute;
+    background: #ec9c4a ;
+    width : 340px;
+    height : 90px;
+    top : -90px;
+    left : -20px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s ease;
+}
+.click.active{
+    transition-delay: 1s;
+    transform: translateY(-240px);
+}
+.click::before{
+    content: '';
+    position: absolute;
+    width : 50px;
+    height : 90px;
+    background: #e76f51;
+    left : 144px;
+    z-index: 2;
+}
+.click::after{
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0,0,0,.3);
+    width: 5px;
+    height: 0;
+    border-bottom: 60px solid #e76f51;
+    border-top: 60px solid #e76f51;
+    border-left: 0px transparent;
+    border-right: 60px solid transparent;
+
+    left : 140px;
+    rotate: 270deg;
+    top : -93px;
+    z-index: 3;
+}
+
+.gift-container .shadow{
+    content: '';
+    position: relative;
+    width: 340px;
+    height : 40px;
+    background: rgba(0,0,0,.4);
+    top: 100px;
+    border-radius: 50%;
+    animation : Bounceout 4s ease infinite;
+}
+
+.gift-container .shadow.active{
+    animation : none;
+}
+
+@keyframes Bounceout{
+    0%{
+        transform: translateY(24px);
+        scale : .7;
+    }
+    50%{
+        transform: translateY(0px);
+        scale : 1;
+    }
+    100%{
+        transform: translateY(24px);
+        scale : .7;
+    }
+}
+
+.text{
+    position : absolute;
+    background : #f0bd8a;
+    padding: 20px 60px;
+    border-radius : 10px;
+    text-align: center;
+    width: 640px;
+    height : 200px;
+    display: none;
+    transition: 0.5s ease;
+    transform: translateY(-220px);
+    animation: none;
+    z-index: 3;
+}
+.text::before{
+    content: '';
+    position: absolute;
+    width : 600px;
+    height : 170px;
+    background: #e76f51;
+    left : 20px;
+    top : 17px;
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.text.active{
+    transition-delay: 1s;
+    /*transform: translateY(-200px);*/
+    display: block;
+    animation: FadeIn 0.25s ease forwards;
+}
+
+@keyframes FadeIn{
+    0%{
+        
+    }
+    25%{
+
+        scale : 0.2;
+    }
+    75%{
+
+        scale : 0.8;
+    }
+    100%{
+
+        scale : 1;
+    }
+}
+
+.bubble {
+    position: absolute;
+    bottom:  0;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: rise 5s ease-in-out infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-400px) scale(1.2);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-800px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+
+
+
+#balloon-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 70px;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 1;
+    animation: risee 3s ease-in infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: translateX(-50%);
+    transform: translateY(80px);
+    z-index: 1;
+}
+
+
+@keyframes risee {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+#cat1{
+    width : 196px;
+    height: 250px;
+    position: absolute;
+    top : 25px;
+    left: 300px;
+    z-index: -2;
+}
+
+#cat2{
+    width : 196px;
+    height: 260px;
+    position: absolute;
+    top : 25px;
+    left: 816.5px;
+    z-index: -2;
+}
+#cat3{
+    width : 190px;
+    height: 255px;
+    position: absolute;
+    top : 25px;
+    left: 1335px;
+}
+
+#hppdtext{
+    z-index: -1;
+    position: absolute;
+    left : -65px;
+    top : 100px;
+}
